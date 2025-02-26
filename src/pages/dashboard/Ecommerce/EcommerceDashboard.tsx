@@ -1,78 +1,53 @@
-import { Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { HyperDatepicker } from 'components';
-import { useDatePicker } from 'hooks';
-import Statistics from './Statistics';
-import PerformanceChart from './PerformanceChart';
-import RevenueChart from './RevenueChart';
-import RevenueByLocationChart from './RevenueByLocationChart';
-import SalesChart from './SalesChart';
-import Activity from './Activity';
-import Products from './Products';
+import React from 'react';
+import { Row, Col, Card } from 'react-bootstrap';
 
 const EcommerceDashboard = () => {
-    const { selectedDate, onDateChange } = useDatePicker();
-
     return (
-        <>
-            <Row>
-                <Col xs={12}>
-                    <div className="page-title-box">
-                        <div className="page-title-right">
-                            <form className="d-flex">
-                                <div className="input-group">
-                                    <HyperDatepicker
-                                        value={selectedDate}
-                                        inputClass="form-control-light"
-                                        onChange={(date) => {
-                                            onDateChange(date);
-                                        }}
-                                    />
-                                </div>
-                                <Link to="#" className="btn btn-primary ms-2">
-                                    <i className="mdi mdi-autorenew"></i>
-                                </Link>
-                                <Link to="#" className="btn btn-primary ms-1">
-                                    <i className="mdi mdi-filter-variant"></i>
-                                </Link>
-                            </form>
-                        </div>
-                        <h4 className="page-title">Dashboard</h4>
-                    </div>
-                </Col>
-            </Row>
+        <div>
+            <h4 className="mb-4">Home</h4>
 
             <Row>
-                <Col xl={5} lg={6}>
-                    <Statistics />
+                {/* Indicador 1 - Total de Vendas */}
+                <Col md={3}>
+                    <Card className="shadow-sm">
+                        <Card.Body>
+                            <h6 className="text-muted">Total de Vendas</h6>
+                            <h3>R$ 120.000</h3>
+                        </Card.Body>
+                    </Card>
                 </Col>
 
-                <Col xl={7} lg={6}>
-                    <PerformanceChart />
+                {/* Indicador 2 - Clientes Ativos */}
+                <Col md={3}>
+                    <Card className="shadow-sm">
+                        <Card.Body>
+                            <h6 className="text-muted">Clientes Ativos</h6>
+                            <h3>1.250</h3>
+                        </Card.Body>
+                    </Card>
                 </Col>
-            </Row>
 
-            <Row>
-                <Col lg={8}>
-                    <RevenueChart />
+                {/* Indicador 3 - Pedidos Pendentes */}
+                <Col md={3}>
+                    <Card className="shadow-sm">
+                        <Card.Body>
+                            <h6 className="text-muted">Pedidos Pendentes</h6>
+                            <h3>45</h3>
+                        </Card.Body>
+                    </Card>
                 </Col>
-                <Col lg={4}>
-                    <RevenueByLocationChart />
-                </Col>
-            </Row>
 
-            <Row>
-                <Col xl={{ span: 6, order: 1 }} lg={{ span: 12, order: 2 }}>
-                    <Products />
-                </Col>
-                <Col xl={3} lg={{ span: 6, order: 1 }}>
-                    <SalesChart />
-                </Col>
-                <Col xl={3} lg={{ span: 6, order: 1 }}>
-                    <Activity />
+                {/* Indicador 4 - Lucro Mensal */}
+                <Col md={3}>
+                    <Card className="shadow-sm">
+                        <Card.Body>
+                            <h6 className="text-muted">Lucro Mensal</h6>
+                            <h3>R$ 18.500</h3>
+                        </Card.Body>
+                    </Card>
                 </Col>
             </Row>
-        </>
+        </div>
     );
 };
 

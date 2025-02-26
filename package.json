@@ -2,6 +2,7 @@
   "name": "hyper-react-ts",
   "version": "3.3.0",
   "private": true,
+  "homepage": "/intranet/",
   "dependencies": {
     "@fullcalendar/bootstrap": "^5.10.1",
     "@fullcalendar/core": "^5.10.1",
