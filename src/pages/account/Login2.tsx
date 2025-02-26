@@ -16,9 +16,8 @@ const BottomLink = () => {
     return (
         <footer className="footer footer-alt">
             <p className="text-muted">
-                {t("Don't have an account?")}{' '}
                 <Link to={'/account/register2'} className="text-muted ms-1">
-                    <b>{t('Sign Up')}</b>
+                    {t('Não tem uma conta? Cadastre-se')}
                 </Link>
             </p>
         </footer>
@@ -34,8 +33,9 @@ const Login2 = () => {
             {(userLoggedIn || user) && <Navigate to={redirectUrl} replace />}
 
             <AccountLayout2 bottomLinks={<BottomLink />}>
-                <h4 className="mt-0">{t('Sign In')}</h4>
-                <p className="text-muted mb-4">{t('Enter your email address and password to access account.')}</p>
+                <h4 ><strong>Intranet</strong></h4>
+                <br></br>
+                <p className="text-muted mb-4">{t('Entre com seu usuário e senha para acessar.')}</p>
 
                 {error && (
                     <Alert variant="danger" className="my-2">
@@ -46,24 +46,24 @@ const Login2 = () => {
                 <VerticalForm<UserData>
                     onSubmit={onSubmit}
                     resolver={schemaResolver}
-                    defaultValues={{ username: 'test', password: 'test' }}
+                    defaultValues={{ username: '', password: '' }}
                 >
                     <FormInput
-                        label={t('Username')}
+                        label={t('Usuário')}
                         type="text"
                         name="username"
-                        placeholder={t('Enter your Username')}
+                        placeholder={t('Digite seu usuário')}
                         containerClass={'mb-3'}
                     />
                     <FormInput
-                        label={t('Password')}
+                        label={t('Senha')}
                         type="password"
                         name="password"
-                        placeholder={t('Enter your password')}
+                        placeholder={t('Digite sua senha')}
                         containerClass={'mb-3'}
                     >
                         <Link to="/account/forget-password2" className="text-muted float-end">
-                            <small>{t('Forgot your password?')}</small>
+                            <small>{t('Esqueceu sua senha?')}</small>
                         </Link>
                     </FormInput>
 
@@ -75,7 +75,6 @@ const Login2 = () => {
 
                     {/* social links */}
                     <div className="text-center mt-4">
-                        <p className="text-muted font-16">{t('Sign in with')}</p>
                         <ul className="social-list list-inline mt-3">
                             <li className="list-inline-item">
                                 <Link to="#" className="social-list-item border-primary text-primary">
