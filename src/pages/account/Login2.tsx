@@ -16,8 +16,9 @@ const BottomLink = () => {
     return (
         <footer className="footer footer-alt">
             <p className="text-muted">
+                
                 <Link to={'/account/register2'} className="text-muted ms-1">
-                    {t('Não tem uma conta? Cadastre-se')}
+                    
                 </Link>
             </p>
         </footer>
@@ -33,9 +34,8 @@ const Login2 = () => {
             {(userLoggedIn || user) && <Navigate to={redirectUrl} replace />}
 
             <AccountLayout2 bottomLinks={<BottomLink />}>
-                <h4 ><strong>Intranet</strong></h4>
-                <br></br>
-                <p className="text-muted mb-4">{t('Entre com seu usuário e senha para acessar.')}</p>
+                <h4 className="mt-0">{t('Intranet')}</h4>
+                <p className="text-muted mb-4">{t('Entre com seu usuario e senha para acessar.')}</p>
 
                 {error && (
                     <Alert variant="danger" className="my-2">
@@ -46,20 +46,20 @@ const Login2 = () => {
                 <VerticalForm<UserData>
                     onSubmit={onSubmit}
                     resolver={schemaResolver}
-                    defaultValues={{ username: '', password: '' }}
+                    defaultValues={{ username: 'test', password: 'test' }}
                 >
                     <FormInput
-                        label={t('Usuário')}
+                        label={t('Usuario')}
                         type="text"
                         name="username"
-                        placeholder={t('Digite seu usuário')}
+                        placeholder={t('Enter your Username')}
                         containerClass={'mb-3'}
                     />
                     <FormInput
                         label={t('Senha')}
                         type="password"
                         name="password"
-                        placeholder={t('Digite sua senha')}
+                        placeholder={t('Enter your password')}
                         containerClass={'mb-3'}
                     >
                         <Link to="/account/forget-password2" className="text-muted float-end">
